@@ -1,5 +1,7 @@
 import React from 'react';
-console.log('hi there again!');
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+
 
 const roar = foo => console.log(foo);
 
