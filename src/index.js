@@ -1,3 +1,4 @@
+import React from 'react';
 console.log('hi there again!');
 
 const roar = foo => console.log(foo);
