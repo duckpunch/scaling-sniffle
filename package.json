@@ -1,7 +1,8 @@
 {
     "name": "alphago-lee-sedol",
     "version": "1.0.0",
-    "description": "",
+    "description": "A timeline of the 5 game match between AlphaGo and Lee Sedol",
+    "private": true,
     "main": "",
     "scripts": {
         "start": "webpack-dev-server --content-base src --hot --inline",
