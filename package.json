@@ -4,7 +4,7 @@
     "description": "",
     "main": "",
     "scripts": {
-        "start": "webpack-dev-server --content-base src/ --hot --inline",
+        "start": "webpack-dev-server --content-base src --hot --inline",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
