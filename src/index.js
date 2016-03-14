@@ -1,9 +1,8 @@
 import React from 'react';
-import {sgfToVariation} from 'godash';
 import godash from 'godash';
+import {Provider} from 'react-redux';
 import {combineReducers, createStore} from 'redux';
 import {render} from 'react-dom';
-import {Provider} from 'react-redux';
 
 const game1 = `(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2] RU[Chinese]SZ[19]KM[7.50]TM[7200]
 OT[3x60 byo-yomi]PW[AlphaGo]PB[Lee Sedol]BR[9d]DT[2016-03-09]EV[Google DeepMind Challenge Match]
@@ -24,33 +23,21 @@ RO[Game 1]PC[Seoul, Korea]WT[Computer]BT[Human]SO[https://gogameguru.com/]RE[W+R
 ;W[rd];B[ai];W[ah];B[aj];W[bh];B[gi];W[fj];B[fk];W[oc];B[mc];W[cj];B[al];W[nm]
 ;B[pm];W[aq];B[gh];W[fh])`
 
-window.blah = godash.sgfToVariation(game1);
-
-
-const some_state = {
-    full_tree: [
-        {msg: 'hello'},
-        {msg: 'hello'},
-        {msg: 'hello'},
-        {msg: 'hello'},
-    ],
-    current_move: 0
+const initialState = {
+    variation: godash.sgfToVariation(game1),
+    currentMove: 1,
 };
 
-function test1(state = 0, action) {
-    console.log(state);
+function currentMove(state = 1, action) {
     return state;
 }
 
-function test2(state = 'roar', action) {
-    console.log(state);
+function variation(state = null, action) {
     return state;
 }
 
-//const reducers = combineReducers({
-    //test1, test2
-//});
-const store = createStore(test1);
+const reducers = combineReducers({currentMove, variation});
+const store = createStore(reducers, initialState);
 
 render(
     <Provider store={store}>
