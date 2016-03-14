@@ -39,6 +39,8 @@ function variation(state = null, action) {
     return state;
 }
 
+window.initialState = initialState;
+
 const reducers = combineReducers({currentMove, variation});
 const store = createStore(reducers, initialState);
 
