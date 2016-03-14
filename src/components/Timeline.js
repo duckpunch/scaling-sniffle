@@ -4,7 +4,7 @@ import TimelineEvent from './TimelineEvent';
 
 export default class Timeline extends React.Component {
     createTimelineEvents(boardMap, index) {
-        return <TimelineEvent key={index}/>;
+        return <TimelineEvent key={index} moveNumber={index}/>;
     }
 
     render() {
