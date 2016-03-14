@@ -3,8 +3,8 @@ import TimelineEvent from './TimelineEvent';
 
 
 export default class Timeline extends React.Component {
-    createTimelineEvents() {
-        return <TimelineEvent />;
+    createTimelineEvents(boardMap, index) {
+        return <TimelineEvent key={index}/>;
     }
 
     render() {
