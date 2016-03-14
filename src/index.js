@@ -4,6 +4,9 @@ import {Provider} from 'react-redux';
 import {combineReducers, createStore} from 'redux';
 import {render} from 'react-dom';
 
+import App from './containers/App';
+
+
 const game1 = `(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2] RU[Chinese]SZ[19]KM[7.50]TM[7200]
 OT[3x60 byo-yomi]PW[AlphaGo]PB[Lee Sedol]BR[9d]DT[2016-03-09]EV[Google DeepMind Challenge Match]
 RO[Game 1]PC[Seoul, Korea]WT[Computer]BT[Human]SO[https://gogameguru.com/]RE[W+Resign]
@@ -25,10 +28,10 @@ RO[Game 1]PC[Seoul, Korea]WT[Computer]BT[Human]SO[https://gogameguru.com/]RE[W+R
 
 const initialState = {
     variation: godash.sgfToVariation(game1),
-    currentMove: 1,
+    currentMove: 0,
 };
 
-function currentMove(state = 1, action) {
+function currentMove(state = 0, action) {
     return state;
 }
 
@@ -41,7 +44,7 @@ const store = createStore(reducers, initialState);
 
 render(
     <Provider store={store}>
-        <div></div>
+        <App/>
     </Provider>,
     document.getElementById('app')
 );
