@@ -4,12 +4,15 @@ import TimelineEvent from './TimelineEvent';
 
 export default class Timeline extends React.Component {
     createTimelineEvents(boardMap, index) {
-        return <TimelineEvent key={index} moveNumber={index}/>;
+        return <TimelineEvent
+            key={index}
+            updateCurrentMove={this.props.updateCurrentMove}
+            moveNumber={index}/>;
     }
 
     render() {
         return <div id='timeline'>
-            {this.props.variation._variation.keySeq().map(this.createTimelineEvents)}
+            {this.props.variation._variation.keySeq().map(this.createTimelineEvents.bind(this))}
         </div>;
     }
 }
@@ -18,4 +21,5 @@ export default class Timeline extends React.Component {
 Timeline.propTypes = {
     currentMove: React.PropTypes.number.isRequired,
     variation: React.PropTypes.object.isRequired,
+    updateCurrentMove: React.PropTypes.func.isRequired,
 };

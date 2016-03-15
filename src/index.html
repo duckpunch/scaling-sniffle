@@ -3,22 +3,41 @@
     <head>
         <style>
             #left-side {
-                width: 300px;
-                height: 300px;
+                width: 305px;
+                height: 305px;
                 float: left;
             }
 
             #board {
-                height: 250px;
-                width: 250px;
-                background-color: #ccc;
+                height: 304px;
+                width: 304px;
                 position: fixed;
             }
 
             #right-side {
-                width: 250px;
+                width: 304px;
                 float: left;
                 background-color: #ddd;
+            }
+
+            .board-position {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+            }
+
+            .black {
+                fill: #000;
+            }
+
+            .white {
+                fill: #fff;
+            }
+
+            .row {
+                height: 16px;
+                margin: 0;
+                padding: 0;
             }
         </style>
     </head>

@@ -32,14 +32,16 @@ const initialState = {
 };
 
 function currentMove(state = 0, action) {
+    switch(action.type) {
+        case 'UPDATE_CURRENT_MOVE':
+            return action.currentMove;
+    }
     return state;
 }
 
 function variation(state = null, action) {
     return state;
 }
-
-window.initialState = initialState;
 
 const reducers = combineReducers({currentMove, variation});
 const store = createStore(reducers, initialState);

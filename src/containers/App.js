@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 import Board from '../components/Board';
 import Timeline from '../components/Timeline';
@@ -12,7 +13,10 @@ class App extends React.Component {
                 <Board currentMove={this.props.currentMove} variation={this.props.variation}/>
             </div>
             <div id='right-side'>
-                <Timeline currentMove={this.props.currentMove} variation={this.props.variation}/>
+                <Timeline
+                    currentMove={this.props.currentMove}
+                    variation={this.props.variation}
+                    updateCurrentMove={this.props.actions.updateCurrentMove}/>
             </div>
         </div>);
     }
@@ -25,6 +29,22 @@ App.propTypes = {
 };
 
 
+function updateCurrentMove(currentMove) {
+    return {
+        type: 'UPDATE_CURRENT_MOVE',
+        currentMove,
+    };
+}
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators({updateCurrentMove}, dispatch)
+    };
+}
+
+
 export default connect(
-    state => state
+    state => state,
+    mapDispatchToProps
 )(App);
