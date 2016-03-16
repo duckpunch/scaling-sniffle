@@ -35,7 +35,7 @@ export default class TimelineEvent extends React.Component {
     }
 
     render() {
-        return <div className='timeline-event'>move: {this.props.moveNumber}, {this.props.variation.getCommentsAt(this.props.moveNumber)}</div>;
+        return <div className='timeline-event'>{this.props.variation.getCommentsAt(this.props.moveNumber)}</div>;
     }
 }
 
