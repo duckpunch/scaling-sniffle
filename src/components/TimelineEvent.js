@@ -9,28 +9,39 @@ const MAGICAL_NUMBER = 10;
 
 export default class TimelineEvent extends React.Component {
     componentDidMount() {
-        const component = this;
+        window.addEventListener('scroll', this.scrollChange.bind(this));
+    }
 
-        window.addEventListener('scroll', event => {
-            const domNode = findDOMNode(component);
-            const watcher = scrollMonitor.create(domNode);
+    componentWillUnmount() {
+        this._domWatcher = null;
+    }
 
-            const domViewportTop = watcher.top - scrollMonitor.viewportTop;
-            const domViewportBottom = domViewportTop + watcher.height;
+    scrollChange() {
+        const watcher = this.watcher;
 
-            if (inRange(MAGICAL_NUMBER, domViewportTop, domViewportBottom)) {
-                component.props.updateCurrentMove(component.props.moveNumber);
-            }
-        });
+        const domViewportTop = watcher.top - scrollMonitor.viewportTop;
+        const domViewportBottom = domViewportTop + watcher.height;
+
+        if (inRange(MAGICAL_NUMBER, domViewportTop, domViewportBottom)) {
+            this.props.updateCurrentMove(this.props.moveNumber);
+        }
+    }
+
+    get watcher() {
+        if (!this._domWatcher) {
+            this._domWatcher = scrollMonitor.create(findDOMNode(this));
+        }
+        return this._domWatcher;
     }
 
     render() {
-        return <div className='timeline-event'>move: {this.props.moveNumber}</div>;
+        return <div className='timeline-event'>move: {this.props.moveNumber}, {this.props.variation.getCommentsAt(this.props.moveNumber)}</div>;
     }
 }
 
 
 TimelineEvent.propTypes = {
     moveNumber: React.PropTypes.number.isRequired,
+    variation: React.PropTypes.object.isRequired,
     updateCurrentMove: React.PropTypes.func.isRequired,
 };

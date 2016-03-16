@@ -6,6 +6,7 @@ export default class Timeline extends React.Component {
     createTimelineEvents(boardMap, index) {
         return <TimelineEvent
             key={index}
+            variation={this.props.variation}
             updateCurrentMove={this.props.updateCurrentMove}
             moveNumber={index}/>;
     }

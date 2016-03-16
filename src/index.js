@@ -10,7 +10,7 @@ import App from './containers/App';
 const game1 = `(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2] RU[Chinese]SZ[19]KM[7.50]TM[7200]
 OT[3x60 byo-yomi]PW[AlphaGo]PB[Lee Sedol]BR[9d]DT[2016-03-09]EV[Google DeepMind Challenge Match]
 RO[Game 1]PC[Seoul, Korea]WT[Computer]BT[Human]SO[https://gogameguru.com/]RE[W+Resign]
-;B[qd];W[dd];B[pq];W[dp];B[fc];W[cf];B[ql];W[od];B[ld];W[qc];B[rc];W[pc];B[re]
+;B[qd]C[first move yey];W[dd];B[pq];W[dp];B[fc];W[cf];B[ql];W[od];B[ld];W[qc];B[rc];W[pc];B[re]
 ;W[of];B[pg];W[og];B[ph];W[id];B[lf];W[oh];B[pi];W[lh];B[kh];W[ke];B[le];W[lg]
 ;B[kg];W[kf];B[ne];W[oe];B[jc];W[ic];B[jd];W[ie];B[je];W[jf];B[if];W[jg];B[li]
 ;W[mi];B[hf];W[ih];B[mb];W[gd];B[ki];W[mj];B[kk];W[ib];B[ob];W[ml];B[lm];W[nc]
